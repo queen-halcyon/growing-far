@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cvdlbk32fjtyj"]
 
 [ext_resource type="Theme" uid="uid://b51dem1dv6iw5" path="res://assets/ui/menu_buttons_theme.tres" id="1_014dm"]
-[ext_resource type="Texture2D" uid="uid://dwil7gdvtuscr" path="res://assets/ui/titlescreen.png" id="1_as2qp"]
+[ext_resource type="Texture2D" uid="uid://dbh3551pid87u" path="res://assets/ui/titlescreen.png" id="1_as2qp"]
 
 [node name="MainMenu" type="Node2D"]
 
