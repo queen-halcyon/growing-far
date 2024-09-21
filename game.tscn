@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvdlbk32fjtyj"]
+[gd_scene load_steps=5 format=3 uid="uid://cvdlbk32fjtyj"]
 
 [ext_resource type="Theme" uid="uid://b51dem1dv6iw5" path="res://assets/ui/menu_buttons_theme.tres" id="1_014dm"]
 [ext_resource type="Texture2D" uid="uid://dbh3551pid87u" path="res://assets/ui/titlescreen.png" id="1_as2qp"]
+[ext_resource type="Script" path="res://scripts/ui/play.gd" id="2_dyab6"]
+[ext_resource type="PackedScene" uid="uid://b6aijwksneo5o" path="res://assets/ui/fade.tscn" id="2_e8j41"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -25,6 +27,7 @@ layout_mode = 2
 theme = ExtResource("1_014dm")
 theme_override_font_sizes/font_size = 20
 text = "Play"
+script = ExtResource("2_dyab6")
 
 [node name="Options" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -38,9 +41,13 @@ theme = ExtResource("1_014dm")
 theme_override_font_sizes/font_size = 20
 text = "Credits"
 
+[node name="Fade" parent="CanvasLayer" instance=ExtResource("2_e8j41")]
+
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 
 [node name="Titlescreen" type="Sprite2D" parent="."]
 position = Vector2(360, 360)
 texture = ExtResource("1_as2qp")
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Play" to="CanvasLayer/VBoxContainer/Play" method="_on_pressed"]

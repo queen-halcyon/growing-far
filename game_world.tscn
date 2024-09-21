@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://rs5egrf8o7x4"]
+
+[ext_resource type="Script" path="res://scripts/turn_manager.gd" id="1_5tu0f"]
+[ext_resource type="PackedScene" uid="uid://b6aijwksneo5o" path="res://assets/ui/fade.tscn" id="1_tuq6u"]
+[ext_resource type="Theme" uid="uid://b51dem1dv6iw5" path="res://assets/ui/menu_buttons_theme.tres" id="2_jpdup"]
+[ext_resource type="Script" path="res://scripts/ui/ui_header.gd" id="3_h7lbd"]
+[ext_resource type="Script" path="res://scripts/ui/end_turn.gd" id="4_dxubr"]
+[ext_resource type="PackedScene" uid="uid://esdqwonsqy1i" path="res://assets/ui/bubble_ui.tscn" id="6_86wwi"]
+
+[node name="GameWorld" type="Node2D"]
+script = ExtResource("1_5tu0f")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Fade" parent="CanvasLayer" instance=ExtResource("1_tuq6u")]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_right = 720.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="UiHeader" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 0
+script = ExtResource("3_h7lbd")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/MarginContainer/UiHeader"]
+layout_mode = 2
+text = "Current Turn: "
+
+[node name="CurrentTurn" type="Label" parent="CanvasLayer/Panel/MarginContainer/UiHeader"]
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndTurn" type="Button" parent="CanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -187.0
+offset_top = -26.0
+offset_right = -41.0
+offset_bottom = 27.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_jpdup")
+text = "End Turn"
+script = ExtResource("4_dxubr")
+
+[node name="Bubble" parent="CanvasLayer" instance=ExtResource("6_86wwi")]
+offset_left = 360.0
+offset_top = 631.0
+offset_right = 360.0
+offset_bottom = 720.0
+
+[connection signal="pressed" from="CanvasLayer/EndTurn" to="CanvasLayer/EndTurn" method="_on_pressed"]
