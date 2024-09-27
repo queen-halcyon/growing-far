@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Activity" load_steps=3 format=3 uid="uid://d0brfv4v0vmtc"]
+
+[ext_resource type="Script" path="res://scripts/resources/activity.gd" id="1_owj44"]
+[ext_resource type="Texture2D" uid="uid://4md22e0die6s" path="res://assets/activities/study.png" id="1_yotc4"]
+
+[resource]
+script = ExtResource("1_owj44")
+defiant = -1
+spirited = 0
+helpful = 0
+cunning = 2
+stress = 1
+name = "Studying"
+image = ExtResource("1_yotc4")

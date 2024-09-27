@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=2 format=3 uid="uid://beiivshox7no3"]
+
+[ext_resource type="Script" path="res://scripts/resources/ending.gd" id="1_c2fuu"]
+
+[resource]
+script = ExtResource("1_c2fuu")
+message = "After years of intense study, you have uncovered the secrets of magic. You become famous in the kingdom for your magical skills, and many people come to your doorstep with gold in hand for your services."
+title = "Mage"
+min_defiant = 0
+min_helpful = 0
+min_spirited = 10
+min_cunning = 30

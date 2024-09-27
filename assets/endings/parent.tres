@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=2 format=3 uid="uid://b35sdt0g642gn"]
+
+[ext_resource type="Script" path="res://scripts/resources/ending.gd" id="1_ukhmw"]
+
+[resource]
+script = ExtResource("1_ukhmw")
+message = "You marry and have a number of children as soon as possible. You dedicate your life to taking care of them and focus on family rather than a career, the social ladder, or financial gain. You, and your family, are happy."
+title = "Parent"
+min_defiant = 0
+min_helpful = 0
+min_spirited = 0
+min_cunning = 0

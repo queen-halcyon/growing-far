@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=2 format=3 uid="uid://y0sqtuhgkjth"]
+
+[ext_resource type="Script" path="res://scripts/resources/ending.gd" id="1_e7cow"]
+
+[resource]
+script = ExtResource("1_e7cow")
+message = "Despite the best of intentions, and all of your hopes and dreams, you simply never manage to succeed in the world of academia. That lucky break never arrives, and you content yourself with helping the more successful members of the academy with writing their own discoveries and innovations."
+title = "Assistant"
+min_defiant = 0
+min_helpful = 0
+min_spirited = 0
+min_cunning = 0

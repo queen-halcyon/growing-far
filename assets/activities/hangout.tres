@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Activity" load_steps=3 format=3 uid="uid://0oy5crghe0p4"]
+
+[ext_resource type="Texture2D" uid="uid://bgihkkvunvbut" path="res://assets/activities/hangout.png" id="1_i87lt"]
+[ext_resource type="Script" path="res://scripts/resources/activity.gd" id="1_rsswm"]
+
+[resource]
+script = ExtResource("1_rsswm")
+defiant = 0
+spirited = 1
+helpful = 1
+cunning = -1
+stress = -1
+name = "Hanging Out"
+image = ExtResource("1_i87lt")

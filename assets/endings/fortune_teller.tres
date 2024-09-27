@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=2 format=3 uid="uid://dkcxwt0c26ed1"]
+
+[ext_resource type="Script" path="res://scripts/resources/ending.gd" id="1_fdb43"]
+
+[resource]
+script = ExtResource("1_fdb43")
+message = "A life spent independently, following your own whims, led you to seeing things others could not. You try to help people see the things that you do--their bright futures--but, unfortunately, go unheard."
+title = "Fortune Teller"
+min_defiant = 0
+min_helpful = 0
+min_spirited = 0
+min_cunning = 0

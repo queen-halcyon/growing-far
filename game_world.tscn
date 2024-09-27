@@ -1,33 +1,65 @@
-[gd_scene load_steps=7 format=3 uid="uid://rs5egrf8o7x4"]
+[gd_scene load_steps=26 format=3 uid="uid://rs5egrf8o7x4"]
 
 [ext_resource type="Script" path="res://scripts/turn_manager.gd" id="1_5tu0f"]
 [ext_resource type="PackedScene" uid="uid://b6aijwksneo5o" path="res://assets/ui/fade.tscn" id="1_tuq6u"]
+[ext_resource type="Resource" uid="uid://dy17aewx3md3q" path="res://assets/activities/freetime.tres" id="2_66vpd"]
 [ext_resource type="Theme" uid="uid://b51dem1dv6iw5" path="res://assets/ui/menu_buttons_theme.tres" id="2_jpdup"]
+[ext_resource type="Script" path="res://scripts/camera_movement.gd" id="2_jtb7r"]
+[ext_resource type="Resource" uid="uid://y0sqtuhgkjth" path="res://assets/endings/assistant.tres" id="3_2lrjb"]
+[ext_resource type="Script" path="res://scripts/resources/ending.gd" id="3_7bigu"]
 [ext_resource type="Script" path="res://scripts/ui/ui_header.gd" id="3_h7lbd"]
+[ext_resource type="Resource" uid="uid://dbcumvgpkprvp" path="res://assets/endings/athlete.tres" id="4_0wixs"]
 [ext_resource type="Script" path="res://scripts/ui/end_turn.gd" id="4_dxubr"]
+[ext_resource type="Resource" uid="uid://beiivshox7no3" path="res://assets/endings/mage.tres" id="4_fajqx"]
+[ext_resource type="Resource" uid="uid://b35sdt0g642gn" path="res://assets/endings/parent.tres" id="4_oh1cn"]
+[ext_resource type="Resource" uid="uid://cpu3ef0egdiud" path="res://assets/endings/politician.tres" id="5_k6sxe"]
+[ext_resource type="Resource" uid="uid://dqj7ojjwgco43" path="res://assets/endings/bounty_hunter.tres" id="5_xvu51"]
 [ext_resource type="PackedScene" uid="uid://esdqwonsqy1i" path="res://assets/ui/bubble_ui.tscn" id="6_86wwi"]
+[ext_resource type="Resource" uid="uid://dkcxwt0c26ed1" path="res://assets/endings/fortune_teller.tres" id="6_m4o4k"]
+[ext_resource type="Texture2D" uid="uid://drh4cfdd7pd3d" path="res://assets/bg.png" id="7_1gacj"]
+[ext_resource type="Script" path="res://scripts/activity_area2d.gd" id="8_o2f1e"]
+[ext_resource type="PackedScene" uid="uid://c2cqy3efddgse" path="res://assets/ui/activity_slide.tscn" id="8_x6qlf"]
+[ext_resource type="Resource" uid="uid://d0brfv4v0vmtc" path="res://assets/activities/study.tres" id="9_s7fe5"]
+[ext_resource type="Resource" uid="uid://5o5736aqsjsd" path="res://assets/activities/play_soccer.tres" id="10_qhfif"]
+[ext_resource type="Resource" uid="uid://0oy5crghe0p4" path="res://assets/activities/hangout.tres" id="11_e1fbv"]
 
-[node name="GameWorld" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bk06b"]
+size = Vector2(500, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfn84"]
+size = Vector2(1200, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6aud"]
+size = Vector2(400, 200)
+
+[node name="GameWorld" type="Node2D" node_paths=PackedStringArray("activity_slides")]
 script = ExtResource("1_5tu0f")
+default_activity = ExtResource("2_66vpd")
+activity_slides = NodePath("StickyCanvasLayer/ActivitySlide")
+defiant_endings = Array[ExtResource("3_7bigu")]([ExtResource("4_0wixs"), ExtResource("5_xvu51")])
+helpful_endings = Array[ExtResource("3_7bigu")]([ExtResource("4_oh1cn"), ExtResource("5_k6sxe")])
+spirited_endings = Array[ExtResource("3_7bigu")]([ExtResource("6_m4o4k")])
+cunning_endings = [ExtResource("3_2lrjb"), ExtResource("4_fajqx")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+limit_left = 0
+limit_right = 1842
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("2_jtb7r")
 
-[node name="Fade" parent="CanvasLayer" instance=ExtResource("1_tuq6u")]
+[node name="StickyCanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="Fade" parent="StickyCanvasLayer" instance=ExtResource("1_tuq6u")]
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
+[node name="Panel" type="Panel" parent="StickyCanvasLayer"]
 offset_right = 720.0
 offset_bottom = 50.0
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="StickyCanvasLayer/Panel"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -40,23 +72,76 @@ grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="UiHeader" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
+[node name="UiHeader" type="HBoxContainer" parent="StickyCanvasLayer/Panel/MarginContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_constants/separation = 5
 script = ExtResource("3_h7lbd")
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel/MarginContainer/UiHeader"]
+[node name="Label" type="Label" parent="StickyCanvasLayer/Panel/MarginContainer/UiHeader"]
 layout_mode = 2
 text = "Current Turn: "
 
-[node name="CurrentTurn" type="Label" parent="CanvasLayer/Panel/MarginContainer/UiHeader"]
+[node name="CurrentTurn" type="Label" parent="StickyCanvasLayer/Panel/MarginContainer/UiHeader"]
 layout_mode = 2
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="EndTurn" type="Button" parent="CanvasLayer"]
+[node name="VSeparator" type="VSeparator" parent="StickyCanvasLayer/Panel/MarginContainer/UiHeader"]
+layout_mode = 2
+
+[node name="Defiant" type="Label" parent="StickyCanvasLayer/Panel/MarginContainer/UiHeader"]
+layout_mode = 2
+text = "Defiant: "
+
+[node name="DefiantStat" type="Label" parent="StickyCanvasLayer/Panel/MarginContainer/UiHeader"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator4" type="VSeparator" parent="StickyCanvasLayer/Panel/MarginContainer/UiHeader"]
+layout_mode = 2
+
+[node name="Helpful" type="Label" parent="StickyCanvasLayer/Panel/MarginContainer/UiHeader"]
+layout_mode = 2
+text = "Helpful: "
+
+[node name="HelpfulStat" type="Label" parent="StickyCanvasLayer/Panel/MarginContainer/UiHeader"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="StickyCanvasLayer/Panel/MarginContainer/UiHeader"]
+layout_mode = 2
+
+[node name="Spirited" type="Label" parent="StickyCanvasLayer/Panel/MarginContainer/UiHeader"]
+layout_mode = 2
+text = "Spirited: "
+
+[node name="SpiritedStat" type="Label" parent="StickyCanvasLayer/Panel/MarginContainer/UiHeader"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="StickyCanvasLayer/Panel/MarginContainer/UiHeader"]
+layout_mode = 2
+
+[node name="Cunning" type="Label" parent="StickyCanvasLayer/Panel/MarginContainer/UiHeader"]
+layout_mode = 2
+text = "Cunning: "
+
+[node name="CunningStat" type="Label" parent="StickyCanvasLayer/Panel/MarginContainer/UiHeader"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndTurn" type="Button" parent="StickyCanvasLayer"]
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -72,10 +157,83 @@ theme = ExtResource("2_jpdup")
 text = "End Turn"
 script = ExtResource("4_dxubr")
 
-[node name="Bubble" parent="CanvasLayer" instance=ExtResource("6_86wwi")]
-offset_left = 360.0
-offset_top = 631.0
-offset_right = 360.0
-offset_bottom = 720.0
+[node name="ActivitySlide" parent="StickyCanvasLayer" instance=ExtResource("8_x6qlf")]
+visible = false
+light_mask = 0
+mouse_filter = 2
 
-[connection signal="pressed" from="CanvasLayer/EndTurn" to="CanvasLayer/EndTurn" method="_on_pressed"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Bubble1" parent="CanvasLayer" instance=ExtResource("6_86wwi")]
+offset_left = 42.0
+offset_top = 486.0
+offset_right = 117.0
+offset_bottom = 561.0
+
+[node name="Bubble2" parent="CanvasLayer" instance=ExtResource("6_86wwi")]
+offset_left = 130.0
+offset_top = 489.0
+offset_right = 205.0
+offset_bottom = 564.0
+
+[node name="Bubble3" parent="CanvasLayer" instance=ExtResource("6_86wwi")]
+offset_left = 137.0
+offset_top = 588.0
+offset_right = 212.0
+offset_bottom = 663.0
+
+[node name="Bubble4" parent="CanvasLayer" instance=ExtResource("6_86wwi")]
+offset_left = 222.0
+offset_top = 593.0
+offset_right = 297.0
+offset_bottom = 668.0
+
+[node name="Bubble5" parent="CanvasLayer" instance=ExtResource("6_86wwi")]
+offset_left = 38.0
+offset_top = 584.0
+offset_right = 113.0
+offset_bottom = 659.0
+
+[node name="Bubble6" parent="CanvasLayer" instance=ExtResource("6_86wwi")]
+offset_left = 222.0
+offset_top = 493.0
+offset_right = 297.0
+offset_bottom = 568.0
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("7_1gacj")
+offset = Vector2(921, 360)
+metadata/_edit_lock_ = true
+
+[node name="StudyActivityTarget" type="Area2D" parent="."]
+position = Vector2(291, 267)
+collision_layer = 2
+script = ExtResource("8_o2f1e")
+activity_type = ExtResource("9_s7fe5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StudyActivityTarget"]
+shape = SubResource("RectangleShape2D_bk06b")
+metadata/_edit_lock_ = true
+
+[node name="GymActivityTarget" type="Area2D" parent="."]
+position = Vector2(931, 625)
+collision_layer = 2
+script = ExtResource("8_o2f1e")
+activity_type = ExtResource("10_qhfif")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GymActivityTarget"]
+shape = SubResource("RectangleShape2D_yfn84")
+metadata/_edit_lock_ = true
+
+[node name="HangoutActivityTarget" type="Area2D" parent="."]
+position = Vector2(1013, 423)
+collision_layer = 2
+script = ExtResource("8_o2f1e")
+activity_type = ExtResource("11_e1fbv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HangoutActivityTarget"]
+shape = SubResource("RectangleShape2D_w6aud")
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="StickyCanvasLayer/EndTurn" to="StickyCanvasLayer/EndTurn" method="_on_pressed"]

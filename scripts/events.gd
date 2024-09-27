@@ -9,3 +9,6 @@ func _ready() -> void:
 
 signal end_turn
 signal start_turn
+signal bubble_selected
+signal bubble_deselected
+signal next_slide

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=2 format=3 uid="uid://dbcumvgpkprvp"]
+
+[ext_resource type="Script" path="res://scripts/resources/ending.gd" id="1_wjfyh"]
+
+[resource]
+script = ExtResource("1_wjfyh")
+message = "After spending so much time playing on the field, you can't imagine living your life any other way. You sail far away to compete in sports under your kingdom's banner, and pride yourself in your work. You retire after an injury and live off the wealth you earned as a star."
+title = "Athlete"
+min_defiant = 0
+min_helpful = 0
+min_spirited = 0
+min_cunning = 0
