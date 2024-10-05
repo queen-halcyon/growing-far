@@ -12,3 +12,5 @@ signal start_turn
 signal bubble_selected
 signal bubble_deselected
 signal next_slide
+
+signal delete_save

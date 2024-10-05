@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://rs5egrf8o7x4"]
+[gd_scene load_steps=27 format=3 uid="uid://rs5egrf8o7x4"]
 
 [ext_resource type="Script" path="res://scripts/turn_manager.gd" id="1_5tu0f"]
 [ext_resource type="PackedScene" uid="uid://b6aijwksneo5o" path="res://assets/ui/fade.tscn" id="1_tuq6u"]
@@ -22,6 +22,7 @@
 [ext_resource type="Resource" uid="uid://d0brfv4v0vmtc" path="res://assets/activities/study.tres" id="9_s7fe5"]
 [ext_resource type="Resource" uid="uid://5o5736aqsjsd" path="res://assets/activities/play_soccer.tres" id="10_qhfif"]
 [ext_resource type="Resource" uid="uid://0oy5crghe0p4" path="res://assets/activities/hangout.tres" id="11_e1fbv"]
+[ext_resource type="Script" path="res://scripts/ui/to_title_screen.gd" id="14_l3g7p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bk06b"]
 size = Vector2(500, 300)
@@ -39,7 +40,7 @@ activity_slides = NodePath("StickyCanvasLayer/ActivitySlide")
 defiant_endings = Array[ExtResource("3_7bigu")]([ExtResource("4_0wixs"), ExtResource("5_xvu51")])
 helpful_endings = Array[ExtResource("3_7bigu")]([ExtResource("4_oh1cn"), ExtResource("5_k6sxe")])
 spirited_endings = Array[ExtResource("3_7bigu")]([ExtResource("6_m4o4k")])
-cunning_endings = [ExtResource("3_2lrjb"), ExtResource("4_fajqx")]
+cunning_endings = Array[ExtResource("3_7bigu")]([ExtResource("3_2lrjb"), ExtResource("4_fajqx")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -58,6 +59,7 @@ layer = 2
 offset_right = 720.0
 offset_bottom = 50.0
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="StickyCanvasLayer/Panel"]
 layout_mode = 1
@@ -140,6 +142,17 @@ layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="StickyCanvasLayer"]
+custom_minimum_size = Vector2(50, 0)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_bottom = 50.0
+grow_horizontal = 0
+text = "To Title Screen"
+script = ExtResource("14_l3g7p")
 
 [node name="EndTurn" type="Button" parent="StickyCanvasLayer"]
 anchors_preset = 6
@@ -236,4 +249,5 @@ activity_type = ExtResource("11_e1fbv")
 shape = SubResource("RectangleShape2D_w6aud")
 metadata/_edit_lock_ = true
 
+[connection signal="pressed" from="StickyCanvasLayer/Button" to="StickyCanvasLayer/Button" method="_on_pressed"]
 [connection signal="pressed" from="StickyCanvasLayer/EndTurn" to="StickyCanvasLayer/EndTurn" method="_on_pressed"]

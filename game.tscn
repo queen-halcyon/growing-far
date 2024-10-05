@@ -43,9 +43,6 @@ text = "Credits"
 
 [node name="Fade" parent="CanvasLayer" instance=ExtResource("2_e8j41")]
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-
 [node name="Titlescreen" type="Sprite2D" parent="."]
 position = Vector2(360, 360)
 texture = ExtResource("1_as2qp")

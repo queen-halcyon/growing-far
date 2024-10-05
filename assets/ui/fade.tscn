@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6aijwksneo5o"]
+[gd_scene load_steps=12 format=3 uid="uid://b6aijwksneo5o"]
+
+[ext_resource type="Script" path="res://scripts/ui/fade.gd" id="1_nkjg2"]
 
 [sub_resource type="Animation" id="Animation_sr71s"]
 length = 0.001
@@ -54,6 +56,30 @@ _data = {
 "fade_out": SubResource("Animation_oc030")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ey6ih"]
+animation = &"fade_in"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k2do1"]
+animation = &"fade_out"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mg0sj"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_02ph8"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sc6dw"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_n0a3d"]
+states/fade_in/node = SubResource("AnimationNodeAnimation_ey6ih")
+states/fade_in/position = Vector2(333, 80)
+states/fade_out/node = SubResource("AnimationNodeAnimation_k2do1")
+states/fade_out/position = Vector2(516, 79)
+transitions = ["Start", "fade_in", SubResource("AnimationNodeStateMachineTransition_mg0sj"), "fade_in", "fade_out", SubResource("AnimationNodeStateMachineTransition_02ph8"), "fade_out", "End", SubResource("AnimationNodeStateMachineTransition_sc6dw")]
+
 [node name="Fade" type="ColorRect"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,8 +90,16 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
+script = ExtResource("1_nkjg2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ue85d")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_n0a3d")
+anim_player = NodePath("../AnimationPlayer")
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="tree_entered" from="AnimationPlayer" to="." method="_on_animation_player_tree_entered"]

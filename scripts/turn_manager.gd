@@ -1,6 +1,5 @@
 extends Node2D
 
-var current_turn = 1
 const FINAL_TURN := 7
 
 @export var default_activity : Activity
@@ -29,6 +28,11 @@ func _ready() -> void:
 	
 	Events.connect("end_turn", on_turn_ended)
 	Events.connect("next_slide", play_chosen_schedule)
+	
+	Events.emit_signal("start_turn", DataGlobal.current_turn)
+	
+	if not DataGlobal.is_new_game:
+		DataGlobal.load_game()
 
 
 # Called when the user clicks "end turn"
@@ -37,7 +41,7 @@ func on_turn_ended():
 		return
 	
 	current_state = GameState.AWAITING_SLIDE
-	current_turn += 1
+	DataGlobal.current_turn += 1
 	
 	# Generate schedule
 	var bubbles = get_tree().get_nodes_in_group("activity_bubble")
@@ -55,13 +59,14 @@ func on_turn_ended():
 func finish_turn():
 	current_state = GameState.PLAYING_TURN
 	
-	if current_turn >= FINAL_TURN:
+	if DataGlobal.current_turn >= FINAL_TURN:
 		var ending = determine_ending(determine_ending_category())
 		DataGlobal.ending = ending
 		
 		get_tree().change_scene_to_file("res://ending_screen.tscn")
 	else:
-		Events.emit_signal("start_turn", current_turn)
+		DataGlobal.save_game()
+		Events.emit_signal("start_turn", DataGlobal.current_turn)
 
 
 func play_chosen_schedule():
