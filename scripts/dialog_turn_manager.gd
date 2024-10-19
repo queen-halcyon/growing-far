@@ -21,7 +21,6 @@ func hand_turn_over():
 	
 	await Events.card_played
 	
-	
 	var next_active_char_index = (active_char.get_index() + 1) % get_child_count()
 	active_char = get_child(next_active_char_index)
 	

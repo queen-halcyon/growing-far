@@ -13,23 +13,21 @@ var npc_decks = {
 	"William" = preload("res://assets/decks/william.tres")
 }
 
-var scene = preload("res://assets/scenes/sports1.tres")
-
 
 func _ready() -> void:
 	Events.connect("conversation_over", _on_conversation_over)
 
 
 func initialize(npc):
-	conversation.scene = scene
 	
 	var player_node_instance = player_node.instantiate()
 	var npc_node_instance = npc_node.instantiate()
 	
 	player_node_instance.card_deck = DataGlobal.player_deck
-	npc_node_instance.card_deck = npc_decks[npc]
 	
 	DataGlobal.current_conversation = conversation
+	
+	npc_node_instance.init(npc_decks[npc])
 	
 	dialogTurnManager.add_child(player_node_instance)
 	dialogTurnManager.add_child(npc_node_instance)

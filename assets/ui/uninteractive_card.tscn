@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cqkwcwtjmkw7v" path="res://assets/ui/suit_clubs.png" id="2_jqckr"]
 
 [node name="CardDisplay" type="Control"]
-custom_minimum_size = Vector2(100, 80)
+custom_minimum_size = Vector2(130, 80)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 107.0
@@ -12,9 +12,9 @@ offset_bottom = 80.0
 script = ExtResource("1_b2vd2")
 
 [node name="LeftSymbol" type="Sprite2D" parent="."]
-position = Vector2(20, 32)
+position = Vector2(30, 36)
 texture = ExtResource("2_jqckr")
 
 [node name="RightSymbol" type="Sprite2D" parent="."]
-position = Vector2(100, 32)
+position = Vector2(100, 36)
 texture = ExtResource("2_jqckr")

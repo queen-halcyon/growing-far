@@ -10,8 +10,8 @@ enum Risks {
 	PRESSURE
 }
 
-@export var successes_needed := 1
-@export var fails_needed := 1
+@export var successes_needed : int
+@export var fails_needed : int
 
 
 func is_dialog_over(successes: int, fails: int):

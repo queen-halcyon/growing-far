@@ -25,6 +25,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		var was_dragging = is_dragging
 		is_dragging = not is_dragging
+		DataGlobal.dragging_already = is_dragging
 		
 		
 		if was_dragging and not is_dragging:

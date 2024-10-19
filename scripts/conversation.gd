@@ -1,8 +1,8 @@
 extends Area2D
 class_name Conversation
 
-var cards_played = [Symbol]
-var scene : DialogScene
+var cards_played : Array[Symbol]
+@export var scene : DialogScene
 
 var successes = 0
 var fails = 0
@@ -28,7 +28,7 @@ func reset():
 
 func add_card(card: Symbol):
 	cards_played.append(card)
-	emit_signal("card_added", card)
+	Events.emit_signal("card_added", card)
 	
 	var size = cards_played.size() - 1
 	
@@ -58,10 +58,12 @@ func get_top_card():
 
 
 func _on_npc_turn_start():
-	monitorable = false
-	monitoring = false
+	#monitorable = false
+	#monitoring = false
+	pass
 
 
 func _on_player_turn_start():
-	monitorable = true
-	monitoring = true
+	#monitorable = true
+	#monitoring = true
+	pass

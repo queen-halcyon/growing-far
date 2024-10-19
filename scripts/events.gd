@@ -25,3 +25,4 @@ signal conversation_over
 signal player_ended_conversation
 signal player_dialog_turn_started
 signal npc_dialog_turn_started
+signal card_added

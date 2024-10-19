@@ -5,14 +5,15 @@ var card_deck : CardDeck
 var conversation
 
 
-func init(deck, convo):
+func init(deck):
 	card_deck = deck
-	conversation = convo
+	conversation = DataGlobal.current_conversation
 	
 	card_deck.ready_first_turn()
 
 
 func take_turn():
+	print("ai turn")
 	Events.emit_signal("npc_dialog_turn_started")
 	var top_card = conversation.get_top_card()
 	var good_cards = []

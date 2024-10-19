@@ -7,29 +7,45 @@
 size = Vector2(135, 74)
 
 [node name="CardDisplay" type="Control"]
-custom_minimum_size = Vector2(100, 80)
+custom_minimum_size = Vector2(135, 80)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 132.0
+offset_right = 100.0
 offset_bottom = 80.0
+pivot_offset = Vector2(68, 39)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
 script = ExtResource("1_10h0r")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 4
+input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(66.5, 39)
 shape = SubResource("RectangleShape2D_dre55")
+metadata/_edit_lock_ = true
 
 [node name="LeftSymbol" type="Sprite2D" parent="."]
-position = Vector2(20, 32)
+position = Vector2(30, 36)
 texture = ExtResource("1_5rm1h")
 
 [node name="RightSymbol" type="Sprite2D" parent="."]
-position = Vector2(100, 32)
+position = Vector2(100, 36)
 texture = ExtResource("1_5rm1h")
 
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
