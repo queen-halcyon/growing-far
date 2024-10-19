@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="CardDeck" load_steps=18 format=3 uid="uid://6tcilyywe387"]
+
+[ext_resource type="Script" path="res://scripts/resources/symbol.gd" id="1_e67ai"]
+[ext_resource type="Script" path="res://scripts/resources/card_deck.gd" id="2_vlpto"]
+
+[sub_resource type="Resource" id="Resource_7sl38"]
+script = ExtResource("1_e67ai")
+left_symbol = 3
+right_symbol = 0
+
+[sub_resource type="Resource" id="Resource_rtqrw"]
+script = ExtResource("1_e67ai")
+left_symbol = 3
+right_symbol = 0
+
+[sub_resource type="Resource" id="Resource_bpq82"]
+script = ExtResource("1_e67ai")
+left_symbol = 3
+right_symbol = 0
+
+[sub_resource type="Resource" id="Resource_qt1ba"]
+script = ExtResource("1_e67ai")
+left_symbol = 3
+right_symbol = 0
+
+[sub_resource type="Resource" id="Resource_se8kh"]
+script = ExtResource("1_e67ai")
+left_symbol = 3
+right_symbol = 0
+
+[sub_resource type="Resource" id="Resource_dvsxv"]
+script = ExtResource("1_e67ai")
+left_symbol = 0
+right_symbol = 3
+
+[sub_resource type="Resource" id="Resource_su83h"]
+script = ExtResource("1_e67ai")
+left_symbol = 0
+right_symbol = 3
+
+[sub_resource type="Resource" id="Resource_no4ra"]
+script = ExtResource("1_e67ai")
+left_symbol = 0
+right_symbol = 3
+
+[sub_resource type="Resource" id="Resource_chxpl"]
+script = ExtResource("1_e67ai")
+left_symbol = 0
+right_symbol = 3
+
+[sub_resource type="Resource" id="Resource_uxwby"]
+script = ExtResource("1_e67ai")
+left_symbol = 0
+right_symbol = 3
+
+[sub_resource type="Resource" id="Resource_2042k"]
+script = ExtResource("1_e67ai")
+left_symbol = 0
+right_symbol = 0
+
+[sub_resource type="Resource" id="Resource_31jei"]
+script = ExtResource("1_e67ai")
+left_symbol = 0
+right_symbol = 0
+
+[sub_resource type="Resource" id="Resource_wbrhl"]
+script = ExtResource("1_e67ai")
+left_symbol = 0
+right_symbol = 0
+
+[sub_resource type="Resource" id="Resource_gj2sp"]
+script = ExtResource("1_e67ai")
+left_symbol = 0
+right_symbol = 0
+
+[sub_resource type="Resource" id="Resource_umso6"]
+script = ExtResource("1_e67ai")
+left_symbol = 0
+right_symbol = 0
+
+[resource]
+script = ExtResource("2_vlpto")
+draw_pile = Array[ExtResource("1_e67ai")]([SubResource("Resource_7sl38"), SubResource("Resource_rtqrw"), SubResource("Resource_bpq82"), SubResource("Resource_qt1ba"), SubResource("Resource_se8kh"), SubResource("Resource_dvsxv"), SubResource("Resource_su83h"), SubResource("Resource_no4ra"), SubResource("Resource_chxpl"), SubResource("Resource_uxwby"), SubResource("Resource_2042k"), SubResource("Resource_31jei"), SubResource("Resource_wbrhl"), SubResource("Resource_gj2sp"), SubResource("Resource_umso6")])

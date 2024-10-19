@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxdceongmh3hq"]
+
+[ext_resource type="Texture2D" uid="uid://cqkwcwtjmkw7v" path="res://assets/ui/suit_clubs.png" id="1_5rm1h"]
+[ext_resource type="Script" path="res://scripts/ui/card_display.gd" id="1_10h0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dre55"]
+size = Vector2(135, 74)
+
+[node name="CardDisplay" type="Control"]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 132.0
+offset_bottom = 80.0
+script = ExtResource("1_10h0r")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(66.5, 39)
+shape = SubResource("RectangleShape2D_dre55")
+
+[node name="LeftSymbol" type="Sprite2D" parent="."]
+position = Vector2(20, 32)
+texture = ExtResource("1_5rm1h")
+
+[node name="RightSymbol" type="Sprite2D" parent="."]
+position = Vector2(100, 32)
+texture = ExtResource("1_5rm1h")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

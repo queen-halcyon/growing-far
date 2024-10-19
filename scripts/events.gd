@@ -14,3 +14,14 @@ signal bubble_deselected
 signal next_slide
 
 signal delete_save
+
+
+signal card_selected
+signal card_deselected
+
+
+signal card_played
+signal conversation_over
+signal player_ended_conversation
+signal player_dialog_turn_started
+signal npc_dialog_turn_started

@@ -1,5 +1,8 @@
 extends Node
 
+var dragging_already = false
+
+
 var defiant = 0
 var spirited = 0
 var helpful = 0
@@ -9,6 +12,10 @@ var stress = 0
 var player_name = "PlayerName"
 var player_pronoun_set = 2
 var current_turn = 1
+var player_deck = preload("res://assets/decks/player_default.tres")
+
+var current_conversation : Conversation
+
 
 var save_id := "0"
 var is_new_game = true

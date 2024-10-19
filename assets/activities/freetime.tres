@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Activity" load_steps=3 format=3 uid="uid://dy17aewx3md3q"]
 
-[ext_resource type="Texture2D" uid="uid://dtnxosag62685" path="res://assets/activities/freetime.png" id="1_8dbn7"]
+[ext_resource type="Texture2D" uid="uid://bu2tqr8at6n7b" path="res://assets/activities/freetime.png" id="1_8dbn7"]
 [ext_resource type="Script" path="res://scripts/resources/activity.gd" id="1_sws73"]
 
 [resource]
@@ -12,3 +12,4 @@ cunning = 0
 stress = -2
 name = "Enjoying freetime"
 image = ExtResource("1_8dbn7")
+npc = "Ashley"

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Activity" load_steps=3 format=3 uid="uid://5o5736aqsjsd"]
 
-[ext_resource type="Texture2D" uid="uid://clg8yx0s53xoq" path="res://assets/activities/soccer.png" id="1_a2g3i"]
+[ext_resource type="Texture2D" uid="uid://bhlgq880ymomu" path="res://assets/activities/soccer.png" id="1_a2g3i"]
 [ext_resource type="Script" path="res://scripts/resources/activity.gd" id="1_a7q2g"]
 
 [resource]
@@ -12,3 +12,4 @@ cunning = 0
 stress = 1
 name = "Playing Soccer"
 image = ExtResource("1_a2g3i")
+npc = "Sydney"

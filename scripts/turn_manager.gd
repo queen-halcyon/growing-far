@@ -11,6 +11,7 @@ const FINAL_TURN := 7
 @export var cunning_endings : Array[Ending]
 
 var schedule = []
+var possible_npcs = []
 
 var current_state = GameState.PLAYING_TURN
 
@@ -18,8 +19,13 @@ enum GameState {
 	PLAYING_TURN,
 	AWAITING_SLIDE,
 	ANIMATING_SLIDE,
-	SHOWING_SLIDE
+	SHOWING_SLIDE,
+	PLAYING_CONVERSATION
 }
+
+var minigame_preloaded_scene = preload("res://conversation_minigame.tscn")
+var instanced_minigame
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,6 +34,7 @@ func _ready() -> void:
 	
 	Events.connect("end_turn", on_turn_ended)
 	Events.connect("next_slide", play_chosen_schedule)
+	Events.connect("player_ended_conversation", finish_turn)
 	
 	Events.emit_signal("start_turn", DataGlobal.current_turn)
 	
@@ -56,8 +63,21 @@ func on_turn_ended():
 	play_chosen_schedule()
 
 
+func start_minigame():
+	current_state = GameState.PLAYING_CONVERSATION
+	
+	instanced_minigame = minigame_preloaded_scene.instantiate()
+	add_child(instanced_minigame)
+	
+	var chosen_npc = DataGlobal.rng.randi_range(0, possible_npcs.size() - 1)
+	
+	instanced_minigame.initialize(possible_npcs[chosen_npc])
+
+
 func finish_turn():
+	instanced_minigame.queue_free()
 	current_state = GameState.PLAYING_TURN
+	possible_npcs.clear()
 	
 	if DataGlobal.current_turn >= FINAL_TURN:
 		var ending = determine_ending(determine_ending_category())
@@ -76,6 +96,7 @@ func play_chosen_schedule():
 		DataGlobal.helpful += schedule[0].helpful
 		DataGlobal.spirited += schedule[0].spirited
 		DataGlobal.cunning += schedule[0].cunning
+		possible_npcs.append(schedule[0].npc)
 		
 		if DataGlobal.defiant < 0:
 			DataGlobal.defiant = 0
@@ -96,7 +117,7 @@ func play_chosen_schedule():
 	
 	
 	if schedule.is_empty():
-		finish_turn()
+		start_minigame()
 		return
 	
 	play_slide(schedule[0])

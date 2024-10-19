@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="CardDeck" load_steps=17 format=3 uid="uid://csqmtt276p13w"]
+
+[ext_resource type="Script" path="res://scripts/resources/symbol.gd" id="1_jrbfd"]
+[ext_resource type="Script" path="res://scripts/resources/card_deck.gd" id="2_hgqyj"]
+
+[sub_resource type="Resource" id="Resource_b4p11"]
+script = ExtResource("1_jrbfd")
+left_symbol = 3
+right_symbol = 3
+
+[sub_resource type="Resource" id="Resource_yyr7s"]
+script = ExtResource("1_jrbfd")
+left_symbol = 3
+right_symbol = 3
+
+[sub_resource type="Resource" id="Resource_jlgdq"]
+script = ExtResource("1_jrbfd")
+left_symbol = 3
+right_symbol = 3
+
+[sub_resource type="Resource" id="Resource_s07qw"]
+script = ExtResource("1_jrbfd")
+left_symbol = 3
+right_symbol = 3
+
+[sub_resource type="Resource" id="Resource_6lj55"]
+script = ExtResource("1_jrbfd")
+left_symbol = 3
+right_symbol = 3
+
+[sub_resource type="Resource" id="Resource_mbc1q"]
+script = ExtResource("1_jrbfd")
+left_symbol = 2
+right_symbol = 2
+
+[sub_resource type="Resource" id="Resource_0fayu"]
+script = ExtResource("1_jrbfd")
+left_symbol = 2
+right_symbol = 2
+
+[sub_resource type="Resource" id="Resource_i827t"]
+script = ExtResource("1_jrbfd")
+left_symbol = 2
+right_symbol = 2
+
+[sub_resource type="Resource" id="Resource_g7l6a"]
+script = ExtResource("1_jrbfd")
+left_symbol = 2
+right_symbol = 2
+
+[sub_resource type="Resource" id="Resource_1hc65"]
+script = ExtResource("1_jrbfd")
+left_symbol = 2
+right_symbol = 2
+
+[sub_resource type="Resource" id="Resource_65dy3"]
+script = ExtResource("1_jrbfd")
+left_symbol = 2
+right_symbol = 2
+
+[sub_resource type="Resource" id="Resource_x242g"]
+script = ExtResource("1_jrbfd")
+left_symbol = 2
+right_symbol = 3
+
+[sub_resource type="Resource" id="Resource_mkyku"]
+script = ExtResource("1_jrbfd")
+left_symbol = 2
+right_symbol = 3
+
+[sub_resource type="Resource" id="Resource_nptbu"]
+script = ExtResource("1_jrbfd")
+left_symbol = 3
+right_symbol = 2
+
+[resource]
+script = ExtResource("2_hgqyj")
+draw_pile = Array[ExtResource("1_jrbfd")]([SubResource("Resource_b4p11"), SubResource("Resource_yyr7s"), SubResource("Resource_jlgdq"), SubResource("Resource_s07qw"), SubResource("Resource_6lj55"), SubResource("Resource_mbc1q"), SubResource("Resource_0fayu"), SubResource("Resource_i827t"), SubResource("Resource_g7l6a"), SubResource("Resource_1hc65"), SubResource("Resource_65dy3"), SubResource("Resource_x242g"), SubResource("Resource_mkyku"), SubResource("Resource_nptbu")])

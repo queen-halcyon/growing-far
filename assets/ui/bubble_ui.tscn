@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://esdqwonsqy1i"]
 
 [ext_resource type="Script" path="res://assets/ui/bubble_ui_interact.gd" id="1_85gl4"]
-[ext_resource type="Texture2D" uid="uid://cfwy45jopj1du" path="res://assets/ui/bubble.png" id="1_ymjr2"]
+[ext_resource type="Texture2D" uid="uid://d07e6icq2l8i7" path="res://assets/ui/bubble.png" id="1_ymjr2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bt2n"]
 size = Vector2(75, 75)

@@ -9,3 +9,4 @@ extends Resource
 @export var stress: int
 @export var name: String
 @export var image: Texture
+@export var npc: String

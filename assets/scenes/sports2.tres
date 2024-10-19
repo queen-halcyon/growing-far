@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogScene" load_steps=2 format=3 uid="uid://b4iv2l4cyjw11"]
+
+[ext_resource type="Script" path="res://scripts/resources/dialog_scene.gd" id="1_f2o6m"]
+
+[resource]
+script = ExtResource("1_f2o6m")
+risk = 0
+successes_needed = 3
+fails_needed = 2

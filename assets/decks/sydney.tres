@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="CardDeck" load_steps=18 format=3 uid="uid://bgj6rcxsum75o"]
+
+[ext_resource type="Script" path="res://scripts/resources/symbol.gd" id="1_82phq"]
+[ext_resource type="Script" path="res://scripts/resources/card_deck.gd" id="2_wqvto"]
+
+[sub_resource type="Resource" id="Resource_lb3wr"]
+script = ExtResource("1_82phq")
+left_symbol = 1
+right_symbol = 1
+
+[sub_resource type="Resource" id="Resource_bmyih"]
+script = ExtResource("1_82phq")
+left_symbol = 1
+right_symbol = 1
+
+[sub_resource type="Resource" id="Resource_y5xxt"]
+script = ExtResource("1_82phq")
+left_symbol = 1
+right_symbol = 1
+
+[sub_resource type="Resource" id="Resource_r2nov"]
+script = ExtResource("1_82phq")
+left_symbol = 1
+right_symbol = 1
+
+[sub_resource type="Resource" id="Resource_2wq3t"]
+script = ExtResource("1_82phq")
+left_symbol = 1
+right_symbol = 1
+
+[sub_resource type="Resource" id="Resource_4yuaa"]
+script = ExtResource("1_82phq")
+left_symbol = 1
+right_symbol = 1
+
+[sub_resource type="Resource" id="Resource_4bl62"]
+script = ExtResource("1_82phq")
+left_symbol = 1
+right_symbol = 1
+
+[sub_resource type="Resource" id="Resource_0sog8"]
+script = ExtResource("1_82phq")
+left_symbol = 1
+right_symbol = 1
+
+[sub_resource type="Resource" id="Resource_kvkq0"]
+script = ExtResource("1_82phq")
+left_symbol = 2
+right_symbol = 1
+
+[sub_resource type="Resource" id="Resource_rlmau"]
+script = ExtResource("1_82phq")
+left_symbol = 2
+right_symbol = 1
+
+[sub_resource type="Resource" id="Resource_p62qf"]
+script = ExtResource("1_82phq")
+left_symbol = 2
+right_symbol = 1
+
+[sub_resource type="Resource" id="Resource_8o2a3"]
+script = ExtResource("1_82phq")
+left_symbol = 2
+right_symbol = 1
+
+[sub_resource type="Resource" id="Resource_cgead"]
+script = ExtResource("1_82phq")
+left_symbol = 1
+right_symbol = 2
+
+[sub_resource type="Resource" id="Resource_0yypt"]
+script = ExtResource("1_82phq")
+left_symbol = 1
+right_symbol = 1
+
+[sub_resource type="Resource" id="Resource_mvnyj"]
+script = ExtResource("1_82phq")
+left_symbol = 1
+right_symbol = 1
+
+[resource]
+script = ExtResource("2_wqvto")
+draw_pile = Array[ExtResource("1_82phq")]([SubResource("Resource_lb3wr"), SubResource("Resource_bmyih"), SubResource("Resource_y5xxt"), SubResource("Resource_r2nov"), SubResource("Resource_2wq3t"), SubResource("Resource_4yuaa"), SubResource("Resource_4bl62"), SubResource("Resource_0sog8"), SubResource("Resource_kvkq0"), SubResource("Resource_rlmau"), SubResource("Resource_p62qf"), SubResource("Resource_8o2a3"), SubResource("Resource_cgead"), SubResource("Resource_0yypt"), SubResource("Resource_mvnyj")])

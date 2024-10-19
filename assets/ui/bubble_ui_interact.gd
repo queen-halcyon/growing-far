@@ -18,6 +18,10 @@ func _process(_delta: float) -> void:
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click"):
+		if not is_dragging and DataGlobal.dragging_already:
+			return
+		
+		
 		get_viewport().set_input_as_handled()
 		var was_dragging = is_dragging
 		is_dragging = not is_dragging

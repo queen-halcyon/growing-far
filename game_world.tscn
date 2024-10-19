@@ -16,7 +16,7 @@
 [ext_resource type="Resource" uid="uid://dqj7ojjwgco43" path="res://assets/endings/bounty_hunter.tres" id="5_xvu51"]
 [ext_resource type="PackedScene" uid="uid://esdqwonsqy1i" path="res://assets/ui/bubble_ui.tscn" id="6_86wwi"]
 [ext_resource type="Resource" uid="uid://dkcxwt0c26ed1" path="res://assets/endings/fortune_teller.tres" id="6_m4o4k"]
-[ext_resource type="Texture2D" uid="uid://drh4cfdd7pd3d" path="res://assets/bg.png" id="7_1gacj"]
+[ext_resource type="Texture2D" uid="uid://dvo73xni7vqdg" path="res://assets/bg.png" id="7_1gacj"]
 [ext_resource type="Script" path="res://scripts/activity_area2d.gd" id="8_o2f1e"]
 [ext_resource type="PackedScene" uid="uid://c2cqy3efddgse" path="res://assets/ui/activity_slide.tscn" id="8_x6qlf"]
 [ext_resource type="Resource" uid="uid://d0brfv4v0vmtc" path="res://assets/activities/study.tres" id="9_s7fe5"]
