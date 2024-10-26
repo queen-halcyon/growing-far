@@ -1,4 +1,4 @@
-extends Control
+extends TextureRect
 
 var sprites = [
 	preload("res://assets/ui/suit_spades.png"),

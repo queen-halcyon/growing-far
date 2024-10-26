@@ -1,20 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkkt8ie020drf"]
+[gd_scene load_steps=4 format=3 uid="uid://dkkt8ie020drf"]
 
 [ext_resource type="Script" path="res://scripts/ui/uninteractive_card.gd" id="1_b2vd2"]
+[ext_resource type="Texture2D" uid="uid://c8kl5pn2knjbf" path="res://assets/ui/card.png" id="2_ibe0s"]
 [ext_resource type="Texture2D" uid="uid://cqkwcwtjmkw7v" path="res://assets/ui/suit_clubs.png" id="2_jqckr"]
 
-[node name="CardDisplay" type="Control"]
-custom_minimum_size = Vector2(130, 80)
-layout_mode = 3
-anchors_preset = 0
-offset_right = 107.0
-offset_bottom = 80.0
+[node name="CardDisplay" type="TextureRect"]
+custom_minimum_size = Vector2(80, 100)
+offset_right = 80.0
+offset_bottom = 100.0
+texture = ExtResource("2_ibe0s")
 script = ExtResource("1_b2vd2")
 
-[node name="LeftSymbol" type="Sprite2D" parent="."]
-position = Vector2(30, 36)
+[node name="LeftSymbol" type="TextureRect" parent="."]
+modulate = Color(0, 0.52549, 0.52549, 1)
+offset_left = 28.0
+offset_top = 51.0
+offset_right = 92.0
+offset_bottom = 115.0
+scale = Vector2(0.45, 0.45)
+mouse_filter = 2
 texture = ExtResource("2_jqckr")
 
-[node name="RightSymbol" type="Sprite2D" parent="."]
-position = Vector2(100, 36)
+[node name="RightSymbol" type="TextureRect" parent="."]
+modulate = Color(0, 0.52549, 0.52549, 1)
+offset_left = 70.0
+offset_top = 51.0
+offset_right = 134.0
+offset_bottom = 115.0
+scale = Vector2(0.45, 0.45)
+mouse_filter = 2
 texture = ExtResource("2_jqckr")

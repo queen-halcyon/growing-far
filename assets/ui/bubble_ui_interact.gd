@@ -7,7 +7,8 @@ var is_dragging = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	Events.connect("conversation_started", _on_conversation_started)
+	Events.connect("player_ended_conversation", _on_conversation_ended)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,3 +51,9 @@ func _on_activity_entered(area):
 
 func _on_activity_exited(_area):
 	hovered_activity = null
+
+func _on_conversation_started():
+	visible = false
+
+func _on_conversation_ended():
+	visible = true

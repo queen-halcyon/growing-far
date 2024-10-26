@@ -13,8 +13,10 @@ func init(deck):
 
 
 func take_turn():
-	print("ai turn")
 	Events.emit_signal("npc_dialog_turn_started")
+	
+	await get_tree().create_timer(1.5).timeout
+	
 	var top_card = conversation.get_top_card()
 	var good_cards = []
 	

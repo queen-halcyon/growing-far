@@ -20,6 +20,7 @@ signal card_selected
 signal card_deselected
 
 
+signal conversation_started
 signal card_played
 signal conversation_over
 signal player_ended_conversation

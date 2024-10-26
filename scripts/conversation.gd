@@ -1,4 +1,4 @@
-extends Area2D
+extends TextureRect
 class_name Conversation
 
 var cards_played : Array[Symbol]
@@ -8,6 +8,7 @@ var successes = 0
 var fails = 0
 
 var conversation_is_over = false
+var player_can_drop_card = true
 
 signal card_added
 signal conversation_over
@@ -26,9 +27,9 @@ func reset():
 	conversation_is_over = false
 
 
-func add_card(card: Symbol):
+func add_card(card: Symbol, index = -1):
 	cards_played.append(card)
-	Events.emit_signal("card_added", card)
+	Events.emit_signal("card_added", card, index)
 	
 	var size = cards_played.size() - 1
 	
@@ -41,6 +42,7 @@ func add_card(card: Symbol):
 		if scene:
 			var should_end_conversation = scene.is_dialog_over(successes, fails)
 			if should_end_conversation:
+				conversation_is_over = true
 				Events.emit_signal("conversation_over")
 	
 	Events.emit_signal("card_played")
@@ -58,12 +60,20 @@ func get_top_card():
 
 
 func _on_npc_turn_start():
-	#monitorable = false
-	#monitoring = false
-	pass
+	player_can_drop_card = false
 
 
 func _on_player_turn_start():
-	#monitorable = true
-	#monitoring = true
-	pass
+	player_can_drop_card = true
+
+
+func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+	if not player_can_drop_card: return false
+	
+	if data.has("card"):
+		return true
+	return false
+
+
+func _drop_data(at_position: Vector2, data: Variant) -> void:
+	add_card(data["card"], data["index"])

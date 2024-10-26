@@ -65,6 +65,7 @@ func on_turn_ended():
 
 func start_minigame():
 	current_state = GameState.PLAYING_CONVERSATION
+	Events.emit_signal("conversation_started")
 	
 	instanced_minigame = minigame_preloaded_scene.instantiate()
 	add_child(instanced_minigame)
@@ -74,10 +75,37 @@ func start_minigame():
 	instanced_minigame.initialize(possible_npcs[chosen_npc])
 
 
-func finish_turn():
+func force_positive_stats():
+	if DataGlobal.defiant < 0:
+		DataGlobal.defiant = 0
+	
+	if DataGlobal.helpful < 0:
+		DataGlobal.helpful = 0
+	
+	if DataGlobal.spirited < 0:
+		DataGlobal.spirited = 0
+	
+	if DataGlobal.cunning < 0:
+		DataGlobal.cunning = 0
+
+
+func finish_turn(success = false):
 	instanced_minigame.queue_free()
 	current_state = GameState.PLAYING_TURN
 	possible_npcs.clear()
+	
+	if success:
+		DataGlobal.defiant += DataGlobal.current_scene.defiant
+		DataGlobal.helpful += DataGlobal.current_scene.helpful
+		DataGlobal.spirited += DataGlobal.current_scene.spirited
+		DataGlobal.cunning += DataGlobal.current_scene.cunning
+	else:
+		DataGlobal.defiant -= DataGlobal.current_scene.defiant
+		DataGlobal.helpful -= DataGlobal.current_scene.helpful
+		DataGlobal.spirited -= DataGlobal.current_scene.spirited
+		DataGlobal.cunning -= DataGlobal.current_scene.cunning
+	
+	force_positive_stats()
 	
 	if DataGlobal.current_turn >= FINAL_TURN:
 		var ending = determine_ending(determine_ending_category())
@@ -98,17 +126,7 @@ func play_chosen_schedule():
 		DataGlobal.cunning += schedule[0].cunning
 		possible_npcs.append(schedule[0].npc)
 		
-		if DataGlobal.defiant < 0:
-			DataGlobal.defiant = 0
-		
-		if DataGlobal.helpful < 0:
-			DataGlobal.helpful = 0
-		
-		if DataGlobal.spirited < 0:
-			DataGlobal.spirited = 0
-		
-		if DataGlobal.cunning < 0:
-			DataGlobal.cunning = 0
+		force_positive_stats()
 		
 		schedule.pop_front()
 		

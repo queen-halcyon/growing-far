@@ -3,7 +3,7 @@ extends HBoxContainer
 var card_deck : CardDeck
 var card_display = preload("res://assets/ui/card.tscn")
 
-var my_canvas_layer = get_parent()
+@onready var my_canvas_layer = get_parent()
 
 
 func initialize():

@@ -15,12 +15,15 @@ var current_turn = 1
 var player_deck = preload("res://assets/decks/player_default.tres")
 
 var current_conversation : Conversation
+var current_scene : DialogScene
 
 
 var save_id := "0"
 var is_new_game = true
 
 var rng = RandomNumberGenerator.new()
+
+var shown_minigame_tutorial = false
 
 
 var ending : Ending

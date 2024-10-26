@@ -7,3 +7,7 @@ script = ExtResource("1_cebn0")
 risk = 0
 successes_needed = 4
 fails_needed = 2
+defiant = 1
+spirited = 0
+helpful = 0
+cunning = 2
